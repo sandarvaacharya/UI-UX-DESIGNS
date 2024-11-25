@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgb(5, 5, 5);
+            border-bottom: 1px solid #eee;
+            box-shadow: 5px 5px 5px rgba(246, 195, 10, 0.3);
+            z-index: 1000;
+            border: 2px solid #f6f0f0; 
+        }
+
+        .navbar .logo {
+            font-size:xx-large;
+            font-weight:bolder;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #f7ba04;
+            text-shadow: 5px 5px 5px rgba(7, 7, 7, 0.3);
+        }
+
+        .navbar nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+           
+        }
+
+        .navbar nav ul li a {
+            text-decoration: none;
+            color: #f7ba04;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-shadow: 5px 5px 5px rgba(7, 7, 7, 0.3);
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+           
+        }
+
+        .navbar nav ul li a:hover {
+            color: #ff5555;
+        }
+
+        /* Section Styles */
+        section {
+            height: 100vh; 
+            padding: 4rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            text-shadow: 5px 5px 5px rgba(7, 7, 7, 0.3);
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #000; 
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #f7ba04; 
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-family: 'Brushed Script, Calligraphic, Casual, Contemporary, Display, Handrawn';
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color:whitesmoke; 
+            margin-bottom: 2rem;
+        }
+
+       
+        .about {
+            background-color: #000; 
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: #f7ba04; 
+            margin-bottom: 1rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            color: whitesmoke; 
+            max-width: 800px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-family:fantasy;
+            font-size:x-large;
+            font-weight: bolder;
+        }
+
+        .about img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px rgba(7, 7, 7, 0.3);
+            border: 2px solid #f6f0f0; 
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: #000; 
+        }
+
+        .projects h2 {
+            font-size: 2.5rem;
+            color: #f7ba04; 
+            text-shadow:5px 5px 5px rgba(7, 7, 7, 0.3); 
+            margin-bottom: 1rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+
+        }
+
+
+        .projects p {
+            font-size: 1.2rem;
+            color:whitesmoke; 
+            max-width: 800px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-family:fantasy;
+            font-size:x-large;
+            font-weight: bolder;
+        }
+
+
+        .projects img {
+            width: 100%;
+            max-width: 300px;
+            margin: 1rem;
+            border-radius: 8px;
+            border: 2px solid #f6f0f0; 
+        }
+
+        .projects .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Hire Me Section */
+        .hire-me {
+            background-color: #000; 
+        }
+
+        .hire-me h2 {
+            font-size: 2.5rem;
+            color: #f7ba04; 
+            margin-bottom: 1rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-shadow:5px 5px 5px rgba(7, 7, 7, 0.3);
+
+        }
+
+        .hire-me p {
+            font-size: 1.2rem;
+            color: whitesmoke;
+            max-width: 800px;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-family:fantasy;
+            font-size:x-large;
+            font-weight: bolder;
+            
+        }
+
+        .hire-me form {
+            background: rgba(15, 15, 15, 0.8); 
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 10px 10px 10px rgba(6, 6, 6, 0.1);
+            max-width: 600px;
+            width: 100%;
+            margin-top: 2rem;
+            border: 2px solid #f6f0f0; 
+         
+        }
+
+        .hire-me form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .hire-me form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #0b0a0a;
+            
+        }
+
+        .hire-me form input, 
+        .hire-me form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #f3b303;
+            border-color: #000;
+            border-radius: 4px;
+            font-size: 1rem;
+            border: 2px solid #f6f0f0; 
+        }
+
+       
+
+        .hire-me form button {
+            background-color: #ff5555;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 2px solid #f6f0f0; 
+            
+            
+        }
+
+        
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">Sandy's</div>
+        <nav>
+            <ul>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#hire-me">Hire Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>
+            Give your innovative project a kickstart with <br>
+            Graphics Design with Sandy. <br>
+            Praised by top-tier companies such as <br>
+            <span>Esewa, C.G. Global</span> & <span>others</span>.
+        </h1>
+        <p>A complete Graphics Design solution</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>
+            Hi, I’m Sandarva Acharya, an experienced graphic designer who believes in the power of creativity to transform ideas 
+            into impactful visuals. With years of experience working with a diverse range of clients, I specialize in providing unique design 
+            solutions tailored to your needs. Whether it's branding, graphic design, or concept art, I bring your ideas to life with a keen eye 
+            for detail and a passion for design.
+        </p>
+        <img src="profile.jpg" alt="About Jeff Gumo">
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="work">
+        <h2>Projects</h2>
+        <p>
+            Explore my portfolio of creative projects. From personal experiments to collaborations 
+            with top-tier companies, each piece reflects my passion for pushing boundaries and crafting meaningful designs.
+        </p>
+        <div class="gallery">
+            <img src="p1.jpg" alt="Project 1">
+            <img src="p2.png" alt="Project 2">
+            <img src="p3.jpg" alt="Project 3">
+            <img src="p4.jpeg" alt="Project 4">
+         
+        </div>
+    </section>
+
+    <!-- Hire Me Section -->
+    <section class="hire-me" id="hire-me">
+        <h2>Hire Me</h2>
+        <p>
+            Ready to take your project to the next level? Contact me today to discuss how I can bring your ideas to life.
+        </p>
+        <form>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .sidebar {
+            background-color: #fff9f9;
+            width: 20vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 20px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            position: fixed;
+        }
+
+        .logo {
+            font-size: 70px;
+            font-family:cursive;
+            font-weight: bold;
+            color: #0c6ee6;
+            margin-bottom: 20px;
+            text-align: center;
+            width: 100%;
+           text-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu {
+            width: 100%;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            font-size: 18px;
+            color: #333;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-item i {
+            margin-right: 10px;
+        }
+
+        .menu-item:hover {
+            background-color: #0c6ee6;
+            color: white;
+        }
+
+        
+        .content-wrapper {
+            margin-left: 20vw; 
+            width: 80vw;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .navbar {
+            width: 100%;
+            height: 70px;
+            background-color: #0c6ee6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 40px;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar .left input {
+            padding: 10px 40px;
+            border-radius: 30px;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .navbar .right .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            
+        }
+
+        .navbar .right .profile img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar i {
+            font-size: 20px;
+            color: white;
+            box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .profile-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .iconbar {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9fb;
+            padding: 15px 20px;
+            font-size: 14px;
+            color: #333;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 40px 0;
+        }
+
+        .iconbar-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .iconbar-item a {
+            color: #0c6ee6;
+            text-decoration: none;
+            font-weight: bold;
+            text-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .iconbar-separator {
+            margin: 0 5px;
+            color: #555;
+        }
+
+        .iconbar-current {
+            color: #555;
+            font-weight: bold;
+        }
+
+        .iconbar-actions {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .iconbar-actions .btn {
+            background-color: #0c6ee6;
+            color: white;
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .iconbar-actions .btn:hover {
+            background-color: #0849a6;
+        }
+
+       
+        .dashboard {
+            flex: 1;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .stat-card i {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .charts {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .chart {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+              box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .chart img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">Argon</div>
+        <div class="menu">
+            <div class="menu-item"><i class="fas fa-tachometer-alt"></i> Dashboard</div>
+            <div class="menu-item"><i class="fas fa-search"></i> Google</div>
+            <div class="menu-item"><i class="fas fa-user"></i> Profile</div>
+            <div class="menu-item"><i class="fas fa-table"></i> Table</div>
+            <div class="menu-item"><i class="fas fa-sign-in-alt"></i> Login</div>
+            <div class="menu-item"><i class="fas fa-user-plus"></i> Register</div>
+            <div class="menu-item"><i class="fas fa-sign-out-alt"></i> Logout</div>
+        </div>
+    </div>
+
+   
+    <div class="content-wrapper">
+      
+        <div class="navbar">
+            <div class="left">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="right">
+                <i class="fas fa-bell"></i>
+                <div class="profile">
+                    <img src="profile.jpg" alt="Profile">
+                    <span class="profile-name">Sandarva</span>
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="iconbar">
+            <span class="iconbar-item">
+                <i class="fas fa-home"></i> 
+                <a href="#">Dashboards</a>
+            </span>
+            <span class="iconbar-separator">/</span>
+            <span class="iconbar-item">
+                <a href="#">Default</a>
+            </span>
+            <div class="iconbar-actions">
+                <button class="btn">New</button>
+                <button class="btn">Filters</button>
+            </div>
+        </div>
+
+        
+        <div class="dashboard">
+            <div class="stats">
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h2>Total Traffic</h2>
+                    <p>350,897</p>
+                    <small>↑ 3.48% Since last month</small>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-user"></i>
+                    <h2>New Users</h2>
+                    <p>2,356</p>
+                    <small>↑ 5.67% Since last week</small>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chart-pie"></i>
+                    <h2>Sales</h2>
+                    <p>$924</p>
+                    <small>↓ 1.10% Since yesterday</small>
+                </div>
+            </div>
+
+            <div class="charts">
+                <div class="chart">
+                    <h3>Revenue Chart</h3>
+                    <img src="chart.jpg" alt="Chart">
+                </div>
+                <div class="chart">
+                    <h3>Performance</h3>
+                    <img src="chart2.jpg" alt="Chart">
+                </div>
+            </div>
+            <div class="charts">
+                <div class="chart">
+                    <h3>Page visit</h3>
+                    <img src="chart3.jpg" alt="Chart">
+                </div>
+                <div class="chart">
+                    <h3>Traffic</h3>
+                    <img src="chart4.jpg" alt="Chart">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

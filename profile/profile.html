@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2.5rem; 
+      background-color: #1a1a1a;
+      color: #fff;
+      
+      font-size: 1.2rem; 
+    }
+
+    .header .logo {
+      font-size: 2rem; 
+      font-weight: bold;
+      color: #4caf50;
+    }
+
+    .header .nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav ul li {
+      margin-left: 1.5rem; 
+    }
+
+    .nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem; 
+    }
+
+    .nav ul li a:hover {
+      text-decoration:solid;
+      background: #4caf50;
+      padding: 0.7rem 1.2rem;
+      border-radius: 20px;
+    }
+
+    .nav .join {
+      background: #4caf50;
+      padding: 0.7rem 1.2rem;
+      border-radius: 20px;
+      
+    }
+
+    .nav .join:hover {
+      background: #45a049;
+    }
+
+  
+    .nav .search-container {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      max-width: 600px; 
+    }
+
+    .nav .search-container input {
+      width: 80%;
+      padding: 1rem 2rem 1rem 2rem;
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      font-size: 1.2rem; 
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    .nav .search-container button {
+      padding: 1rem 1.8rem;
+      margin-left: 10px; 
+      border: 1px solid #4caf50;
+      background-color: #4caf50;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+     
+    }
+
+    .nav .search-container button:hover {
+      background-color: #45a049;
+    }
+
+    .nav .search-container input:focus {
+      border-color: #4caf50;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 600px;
+      background: url('https://images.pexels.com/photos/21033251/pexels-photo-21033251.jpeg?auto=compress&cs=tinysrgb&fit=crop&fp-y=0.4000000059604645&h=500&w=2500') no-repeat center center/cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 2rem; 
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      font-weight: bold;
+    }
+
+    .hero .search-bar {
+      display: flex;
+      justify-content: center;
+      margin-top: 1.5rem;
+    }
+
+    .hero .search-bar input {
+      padding: 1rem;
+      font-size: 1.2rem;
+      margin-right: 0.5rem;
+      flex-grow: 1;
+      max-width: 600px; 
+      border-radius: 30px;
+      border: 1px solid #ccc;
+    }
+
+    .hero .search-bar button {
+      background: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 1rem 1.5rem;
+      border-radius: 30px;
+      cursor: pointer;
+ 
+    }
+
+    .hero .search-bar button:hover {
+      background: #45a049;
+    }
+
+    
+    .free-stock-text {
+      padding: 1rem 1rem; 
+      text-align: left;
+      font-size:larger;
+
+      font-weight:normal;
+      color: #333;
+      background-color: #f4f4f4;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      margin-top: 1rem; 
+    }
+
+    
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem; 
+      padding: 2rem; 
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 10px 6px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+  
+  
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav .search-container {
+        max-width: 400px; 
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
+      .nav ul li {
+        margin-left: 1rem; 
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <header class="header">
+    <div class="logo">P</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">License</a></li>
+        <li><a href="#">Upload</a></li>
+        <li><a href="#" class="join">Join</a></li>
+      </ul>
+      <div class="search-container" id="navSearchBar">
+        <input type="text" placeholder="Search for free photos">
+        <button>Search</button>
+      </div>
+    </nav>
+  </header>
+
+  
+  <div class="hero">
+    <div class="hero-overlay">
+      <h1>The best free stock photos, royalty-free images & videos shared by creators.</h1>
+      <div class="search-bar">
+        <input type="text" placeholder="Search for free photos">
+        <button>Search</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="free-stock-text">
+    Free Stock Photos
+  </div>
+
+
+  <main>
+    <section class="gallery">
+      <img src="https://images.pexels.com/photos/29469995/pexels-photo-29469995/free-photo-of-customer-enjoying-titled-books-outside-french-bookstore.jpeg" alt="Photo 1">
+      <img src="https://images.pexels.com/photos/28607266/pexels-photo-28607266/free-photo-of-young-man-in-leather-jacket-with-urban-motion-blur.jpeg" alt="Photo 2">
+      <img src="https://images.pexels.com/photos/20109560/pexels-photo-20109560/free-photo-of-pancakes-with-honey-and-strawberries.jpeg" alt="Photo 3">
+      <img src="https://images.pexels.com/photos/29242553/pexels-photo-29242553/free-photo-of-snowman-in-a-baku-cafe-with-festive-lights.jpeg" alt="Photo 4">
+      <img src="https://images.pexels.com/photos/29359207/pexels-photo-29359207/free-photo-of-autumn-forest-scene-with-sunlit-path-in-pilis.png" alt="Photo 5">
+      <img src="https://images.pexels.com/photos/27469745/pexels-photo-27469745/free-photo-of-a-ferris-wheel-with-several-red-and-green-seats.jpeg" alt="Photo 6">
+      <img src="https://images.pexels.com/photos/24877164/pexels-photo-24877164/free-photo-of-a-woman-standing-in-front-of-a-rug.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load.jpeg" alt="Photo 7">
+      <img src="https://images.pexels.com/photos/10785757/pexels-photo-10785757.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2.jpeg" alt="Photo 8">
+      <img src="https://images.pexels.com/photos/20351441/pexels-photo-20351441/free-photo-of-light-in-the-sky.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load" alt="Photo 9">
+      <img src="https://images.pexels.com/photos/29250590/pexels-photo-29250590/free-photo-of-vibrant-autumn-foliage-in-a-forest-setting.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load.jpeg" alt="Photo 10">
+      <img src="https://images.pexels.com/photos/29334412/pexels-photo-29334412/free-photo-of-white-lilac-on-wooden-table-in-natural-light.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=loadjpeg" alt="Photo 11">
+      <img src="https://images.pexels.com/photos/27269560/pexels-photo-27269560/free-photo-of-marti.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load.jpeg" alt="Photo 12">
+    </section>
+  </main>
+
+  <script>
+    const navSearchBar = document.getElementById("navSearchBar");
+    const heroSearchBar = document.querySelector(".hero .search-bar");
+
+    window.addEventListener("scroll", () => {
+      const heroRect = heroSearchBar.getBoundingClientRect();
+
+     
+      if (heroRect.bottom <= 0) {
+        navSearchBar.style.display = "flex"; 
+      } else {
+        navSearchBar.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
